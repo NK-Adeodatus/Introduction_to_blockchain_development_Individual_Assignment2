@@ -34,6 +34,11 @@ typedef struct Block {
     char previous_hash[65];
     unsigned char signature[72];
     int sig_len;
+    /* New fields for Formative 2 */
+    int token_reward;
+    char reward_tx_id[65];
+    unsigned int nonce;
+    /* End new fields */
     char hash[65];
 } Block;
 
@@ -41,14 +46,24 @@ typedef struct Block {
  * struct Blockchain - Represents the complete library transaction ledger
  * @blocks: A dynamically allocated array of Block structures
  * @num_blocks: The total number of blocks currently in the chain
- *
- * Description: Holds the sequential sequence of library events,
- * allowing full auditing and verification.
  */
 typedef struct Blockchain {
     Block *blocks;
     int num_blocks;
 } Blockchain;
+
+/**
+ * struct PendingPool - Represents unconfirmed blocks waiting to be mined
+ * @blocks: Dynamically allocated array of unconfirmed Blocks
+ * @num_blocks: Number of pending blocks
+ */
+typedef struct PendingPool {
+    Block *blocks;
+    int num_blocks;
+} PendingPool;
+
+#define MAX_BORROW_SECONDS (7 * 24 * 3600) /* 7 days */
+
 
 char *calculate_hash(const Block *block);
 int is_book_on_loan(const Blockchain *blockchain, const char *book_id);

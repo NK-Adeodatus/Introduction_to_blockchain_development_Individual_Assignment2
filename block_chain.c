@@ -34,6 +34,9 @@ char *calculate_hash(const Block *block)
     EVP_DigestUpdate(ctx, block->previous_hash, sizeof(block->previous_hash));
     EVP_DigestUpdate(ctx, block->signature, sizeof(block->signature));
     EVP_DigestUpdate(ctx, &block->sig_len, sizeof(block->sig_len));
+    EVP_DigestUpdate(ctx, &block->token_reward, sizeof(block->token_reward));
+    EVP_DigestUpdate(ctx, block->reward_tx_id, sizeof(block->reward_tx_id));
+    EVP_DigestUpdate(ctx, &block->nonce, sizeof(block->nonce));
 
     EVP_DigestFinal_ex(ctx, digest, &digest_len);
     EVP_MD_CTX_free(ctx);
