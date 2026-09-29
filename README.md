@@ -32,4 +32,4 @@ gcc -o library_tracker main.c registry.c crypto.c block_chain.c -lssl -lcrypto
 - `books.txt`: Contains the library's available book inventory.
 - `members.txt`: Contains the registered library members.
 
-Once running, follow the on-screen interactive menu to borrow books, return books, view the ledger, and test the blockchain's tamper-detection validation.# Introduction_to_blockchain_development_Individual_Assignment2
+Once running, follow the on-screen interactive menu to borrow books, return books, view the ledger, and test the blockchain's tamper-detection validation.# 
