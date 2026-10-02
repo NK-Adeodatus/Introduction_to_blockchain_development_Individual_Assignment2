@@ -11,9 +11,18 @@ To build and run this project, you will need:
   - On macOS (via Homebrew): `brew install openssl`
   - On MSYS2 (Windows): `pacman -S mingw-w64-x86_64-openssl`
 
+## Getting Started
+
+First, clone the repository to your local machine and navigate into the project directory:
+
+```bash
+git clone https://github.com/NK-Adeodatus/Introduction_to_blockchain_development_Individual_Assignment2.git
+cd Introduction_to_blockchain_development_Individual_Assignment2
+```
+
 ## Compilation Instructions
 
-Navigate to the project directory in your terminal and compile all the source files together. Note that new files (`transaction.c` and `mining.c`) have been added since the previous version. You must explicitly link the OpenSSL libraries (`-lssl` and `-lcrypto`):
+Compile all the source files together. Note that new files (`transaction.c` and `mining.c`) have been added since the previous version. You must explicitly link the OpenSSL libraries (`-lssl` and `-lcrypto`):
 
 ```bash
 gcc -o library_chain main.c registry.c crypto.c block_chain.c transaction.c mining.c -lssl -lcrypto
