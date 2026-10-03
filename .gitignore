@@ -1,5 +1,6 @@
 library_tracker
 .vscode/
 blockchain.dat
+plan.md
 technical_report.md
 library_chain

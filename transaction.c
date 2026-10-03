@@ -32,6 +32,10 @@ Account* get_account(const char *member_id) {
     return NULL;
 }
 
+void initialize_accounts(const char *member_id) {
+    get_account(member_id);
+}
+
 void credit_reward(const char *member_id, int reward, char *out_tx_id, int is_utxo) {
     if (reward <= 0) {
         strcpy(out_tx_id, "0000000000000000000000000000000000000000000000000000000000000000");

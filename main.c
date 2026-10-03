@@ -59,6 +59,11 @@ int main() {
     PendingPool pool = {NULL, 0};
     init_transaction_models();
 
+    // Pre-register all members so they appear in balances from the start
+    for (int i = 0; i < num_members; i++) {
+        initialize_accounts(members[i].member_id);
+    }
+
     if (!load_blockchain(&chain, "blockchain.dat")) {
         printf("No existing blockchain found. Creating genesis block...\n");
         if (!create_genesis_block(&chain, keypair)) {

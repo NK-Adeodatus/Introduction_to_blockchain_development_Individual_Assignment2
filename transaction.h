@@ -30,6 +30,7 @@ typedef struct AccountTx {
 
 /* API */
 void init_transaction_models(void);
+void initialize_accounts(const char *member_id);
 void credit_reward(const char *member_id, int reward, char *out_tx_id, int is_utxo);
 int transfer_tokens(const char *sender, const char *recipient, int amount, int is_utxo);
 void print_balances(int is_utxo);
